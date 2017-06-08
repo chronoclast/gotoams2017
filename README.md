@@ -8,7 +8,7 @@
 
 IoT is a buzzword. As a developer, I’m sure you’ve heard it many times - so many times that you probably tune it out as background noise at this point. Don’t let that phase you. IoT is nothing but a name for a set of ideas that you as developer should consider seriously. In this talk we'll take a practical - with demos - tour into application protocols for IoT.
 
-This presentation uses [Markdown](https://en.wikipedia.org/wiki/Markdown) and PanDoc. _And a little help from some HTML tags._
+This presentation uses [Markdown](https://en.wikipedia.org/wiki/Markdown) and [Pandoc](http://pandoc.org). _And a little help from some HTML tags._
 
 The generated output can be an HTML/JavaScript slideshow, or a PDF file (using the `beamer` LaTeX class).
 
