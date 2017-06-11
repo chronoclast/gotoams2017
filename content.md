@@ -10,7 +10,7 @@
 
 ------------------
 
-## A Gentle Introduction to IoT Protocols: MQTT, CoAP, HTTP & WebSockets
+## IoT Protocols: MQTT, CoAP, HTTP & WebSockets
 
 IoT is a buzzword. As a developer, I’m sure you’ve heard it many times - so many times that you probably tune it out as background noise at this point. Don’t let that phase you. IoT is nothing but a name for a set of ideas that you as developer should consider seriously. In this talk we'll take a practical - with demos - tour into application protocols for IoT.
 
@@ -20,19 +20,21 @@ IoT is a buzzword. As a developer, I’m sure you’ve heard it many times - so 
 * CoAP
 * HTTP
 * WebSockets
+* When **to use (or not!)** each of these protocols
 
-### Bonus
+------------------
 
-* When to use each of this protocols
-* When **not to** use them
+## Bonus
+
 * Adoption of these protocols in the **industrial world**
-* Demos!
+* Integration with existing fieldbuses
+* And of course... **DEMOS!**
 
 ------------------
 
 ## MQTT
 
-_"Industrial, digital bus used for real-time distributed control."_
+_"Quote that summarizes the protocol..."_
 
 * Standard: IEC 61158
 * Bla bla bla
@@ -41,7 +43,7 @@ _"Industrial, digital bus used for real-time distributed control."_
 
 ## CoAp
 
-_"Industrial, digital bus used for real-time distributed control."_
+_"Quote that summarizes the protocol..."_
 
 * Standard: IEC 61158
 * Bla bla bla
@@ -50,7 +52,7 @@ _"Industrial, digital bus used for real-time distributed control."_
 
 ## HTTP
 
-_"Industrial, digital bus used for real-time distributed control."_
+_"Quote that summarizes the protocol..."_
 
 * Standard: IEC 61158
 * Bla bla bla
@@ -59,7 +61,7 @@ _"Industrial, digital bus used for real-time distributed control."_
 
 ## WebSockets
 
-_"Industrial, digital bus used for real-time distributed control."_
+_"Quote that summarizes the protocol..."_
 
 * Standard: IEC 61158
 * Bla bla bla
@@ -74,7 +76,7 @@ _"Industrial, digital bus used for real-time distributed control."_
 
 _"Industrial, digital bus used for real-time distributed control."_
 
-* Standard: IEC 61158
+* Standards?
 * Bla bla bla
 
 ------------------
