@@ -32,6 +32,8 @@ IoT is a buzzword. As a developer, I’m sure you’ve heard it many times - so 
 
 ------------------
 
+<!--TO REVIEW-->
+
 ## MQTT: Basics
 
 **M**essage **Q**ueue **T**elemetry **T**ransport
@@ -45,6 +47,8 @@ _"Publish-subscribe-based "lightweight" messaging protocol, for use on top of th
 
 ------------------
 
+<!--TO REVIEW-->
+
 ## MQTT: In-depth
 
 _"Publish-subscribe-based "lightweight" messaging protocol, for use on top of the TCP/IP protocol."_
@@ -55,13 +59,34 @@ _"Publish-subscribe-based "lightweight" messaging protocol, for use on top of th
 
 ------------------
 
+<!--TO REVIEW-->
+
+## MQTT: Simplified example
+
+<img src="assets/mqtt-simplified.png" alt="GOTO Rate Intro" style="width: 100%;"/>
+
+------------------
+
+<!--TO REVIEW-->
+
+## MQTTS and MQTT-SN
+
+### MQTTS
+
+### MQTT-SN
+
+------------------
+
 ## MQTT: Learn more
 
-_"Publish-subscribe-based "lightweight" messaging protocol, for use on top of the TCP/IP protocol."_
+<!--TO REVIEW-->
 
-* Bla bla bla
-* Bla bla bla
-* Learn more: [mqtt.org](http://mqtt.org)
+There are client libraries and wrappers for practically all languages used in M2M setups, as well as 
+
+* Learn more: **[mqtt.org](http://mqtt.org)**
+* Software: **[mqtt.org/software](http://mqtt.org/software)**
+* Recommended broker: **Mosquitto ([mosquitto.org](https://mosquitto.org))**
+* Lots of good tutorials out there
 
 ------------------
 
