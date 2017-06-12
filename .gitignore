@@ -40,3 +40,4 @@ Thumbs.db
 # Specific files and folders from this project #
 ################################################
 temp/*
+temp.html
