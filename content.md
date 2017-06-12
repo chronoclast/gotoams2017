@@ -1,5 +1,5 @@
-% A Gentle introduction to IoT protocols: MQTT, CoAP, HTTP & WebSockets
-% Antonio Almeida and Jaime González-Arintero
+% A Gentle Introduction to IoT Protocols: MQTT, CoAP, HTTP & WebSockets  
+% Antonio Almeida and Jaime González-Arintero  
 % June 14, 2017
 
 ------------------
@@ -14,7 +14,7 @@
 
 IoT is a buzzword. As a developer, I’m sure you’ve heard it many times - so many times that you probably tune it out as background noise at this point. Don’t let that phase you. IoT is nothing but a name for a set of ideas that you as developer should consider seriously. In this talk we'll take a practical - with demos - tour into application protocols for IoT.
 
-### What Would We Like to Cover Today?
+### Outline of today's talk:
 
 * MQTT
 * CoAP
@@ -32,12 +32,36 @@ IoT is a buzzword. As a developer, I’m sure you’ve heard it many times - so 
 
 ------------------
 
-## MQTT
+## MQTT: Basics
 
-_"Quote that summarizes the protocol..."_
+**M**essage **Q**ueue **T**elemetry **T**ransport
 
-* Standard: IEC 61158
+_"Publish-subscribe-based "lightweight" messaging protocol, for use on top of the TCP/IP protocol."_
+
+* Standard: ISO/IEC PRF 20922
+* Small code footprint
+* Limited network bandwidth
+* A **message broker** is required
+
+------------------
+
+## MQTT: In-depth
+
+_"Publish-subscribe-based "lightweight" messaging protocol, for use on top of the TCP/IP protocol."_
+
 * Bla bla bla
+* Bla bla bla
+* Learn more: [mqtt.org](http://mqtt.org)
+
+------------------
+
+## MQTT: Learn more
+
+_"Publish-subscribe-based "lightweight" messaging protocol, for use on top of the TCP/IP protocol."_
+
+* Bla bla bla
+* Bla bla bla
+* Learn more: [mqtt.org](http://mqtt.org)
 
 ------------------
 
@@ -45,7 +69,7 @@ _"Quote that summarizes the protocol..."_
 
 _"Quote that summarizes the protocol..."_
 
-* Standard: IEC 61158
+* Standard:
 * Bla bla bla
 
 ------------------
@@ -54,7 +78,7 @@ _"Quote that summarizes the protocol..."_
 
 _"Quote that summarizes the protocol..."_
 
-* Standard: IEC 61158
+* Standard:
 * Bla bla bla
 
 ------------------
@@ -63,7 +87,7 @@ _"Quote that summarizes the protocol..."_
 
 _"Quote that summarizes the protocol..."_
 
-* Standard: IEC 61158
+* Standard:
 * Bla bla bla
 
 ------------------
@@ -81,6 +105,30 @@ _"Industrial, digital bus used for real-time distributed control."_
 
 ------------------
 
+## _State of the art_: IO-Link
+
+_"Quote that summarizes the protocol..."_
+
+* Standards?
+* Bla bla bla
+
 ------------------
 
-![](assets/outro-ams17.png)
+## _State of the art_: IO-Link
+
+<img src="assets/io-link-topology.jpg" alt="IO-Link example topology" style="height: 100%, align: middle"/>
+
+------------------
+
+## _State of the art_: OPC-UA
+
+_"Quote that summarizes the protocol..."_
+
+* **Not a protocol**, but a "unified architecture"
+* Bla bla bla
+
+------------------
+
+<!--This image was provided by the organizers to encourage the attendees to rate the session. There's a similar image at the beginning of the presentation. Instead of Markdown, HTML is used to make sure the picture is adequately scaled.-->
+
+<img src="assets/outro-ams17.png" alt="GOTO Rate Intro" style="width: 100%;"/>
