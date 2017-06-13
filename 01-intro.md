@@ -1,5 +1,5 @@
 % A Gentle Introduction to IoT Protocols: MQTT, CoAP, HTTP & WebSockets  
-% Antonio Almeida and Jaime Gonz√°lez-Arintero  
+% Antonio Almeida and Jaime Gonz·lez-Arintero  
 % June 14, 2017
 
 ------------------
@@ -35,6 +35,18 @@
 <img src="assets/arpanet.png" alt="Arpanet" style="width: 80%"/>
 </p>
 
+------------------
+
+<!--WHY MORE PROTOCOLS?-->
+
+<div class="vertically-centered"><font size="150%">
+Why more protocols?
+</font></div>
+
+<p style="text-align:center;">
+<!-- Use the image from La Dolce Vita -->
+<img src="assets/marcello_mastroiani_la_dolce_vita.png" alt="Arpanet" style="width: 80%"/>
+</p>
 
 ## Connected devices
 
@@ -66,14 +78,8 @@
 * Unreliable networking
 * Low power _(so they can run on batteries)_
 
+## Internet a definition
 
-------------------
-
-<!--WHY MORE PROTOCOLS?-->
-
-<div class="vertically-centered"><font size="150%">
-Why more protocols?
-</font></div>
-
-
-------------------
+> a computer network consisting of a worldwide network 
+> of computer networks that use the TCP/IP network protocols
+> to facilitate data transmission and exchange
