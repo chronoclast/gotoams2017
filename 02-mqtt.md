@@ -23,6 +23,7 @@ _"Publish-subscribe-based "lightweight" messaging protocol, for use on top of th
 
 ## MQTT: Publish-subscribe model
 
+<br/>
 <p style="text-align:center;">
 <br/>
 <img src="assets/mqtt-simplified.png" alt="MQTT: Publish-subscribe model" style="width: 100%;"/>
