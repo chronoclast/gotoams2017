@@ -35,18 +35,15 @@
 <img src="assets/arpanet.png" alt="Arpanet" style="width: 80%"/>
 </p>
 
-------------------
 
-<!--WHY MORE PROTOCOLS?-->
 
-<div class="vertically-centered"><font size="150%">
-Why more protocols?
-</font></div>
+## Why more protocols?
 
 <p style="text-align:center;">
 <!-- Use the image from La Dolce Vita -->
 <img src="assets/why-more-protocols.jpg" alt="Why more protocols?" style="width: 80%"/>
 </p>
+
 
 ## Connected devices
 
@@ -73,13 +70,18 @@ Why more protocols?
 
 ## Constrained devices
 
-* IETF Definition: **[tools.ietf.org/html/rfc7228](https://tools.ietf.org/html/rfc7228)**
+<br/>
+
+* IETF Definition: **[`tools.ietf.org/html/rfc7228`](https://tools.ietf.org/html/rfc7228)**
 * Limited processing power
 * Unreliable networking
 * Low power _(so they can run on batteries)_
 
 
 ## Internet: A definition
+
+<br/>
+<br/>
 
 > "A computer network consisting of a worldwide network of computer networks that use the TCP/IP network protocols to facilitate data transmission and exchange."
 
@@ -94,11 +96,13 @@ Why more protocols?
 ## Other protocols &mdash; building management
 
 <p style="text-align:center;">
-<img src="assets/bms-protocols-overview.jpg" alt="BMS protocols overview" style="width: 80%"/>
+<img src="assets/bms-protocols-overview.jpg" alt="BMS protocols overview" style="width: 70%"/>
 </p>
 
 
 ## _Edge_ has devices &mdash; _Cloud_ has servers
+
+<br/>
 
 <p style="text-align:center;">
 <!-- image for edge + cloud --> 
@@ -108,7 +112,7 @@ Why more protocols?
 
 ## Edge 
 
-<p style="text-align:center; font-size:x-large;">
+<p style="text-align:center; font-size:40px;">
 devices != gateways
 </p>
 

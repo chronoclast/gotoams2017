@@ -157,9 +157,9 @@ _"A specialized web transfer protocol for use with constrained nodes and constra
 
 <br/>
 
-* General info: **[coap.technology](http://coap.technology)**
-* Proposed standard: **[tools.ietf.org/html/rfc7252](https://tools.ietf.org/html/rfc7252)**
-* Copper (CoAP user-agent as a Firefox add-on): **[github.com/mkovatsc/Copper](https://github.com/mkovatsc/Copper)*** Several tutorials and cool features to discover
+* General info: **[`coap.technology`](http://coap.technology)**
+* Proposed standard: **[`tools.ietf.org/html/rfc7252`](https://tools.ietf.org/html/rfc7252)**
+* Copper (CoAP user-agent as a Firefox add-on): **[`github.com/mkovatsc/Copper`](https://github.com/mkovatsc/Copper)*** Several tutorials and cool features to discover
 
 
 ------------------

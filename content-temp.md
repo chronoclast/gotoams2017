@@ -52,6 +52,8 @@ _"Industrial, digital bus used for real-time distributed control."_
 * Not to be confused with a PLC (Programmable **Logic** Controller)
 * They often support different fieldbuses by default
 * Easily expandable (new I/O modules can be attached, motor drivers, etc.)
+* Most of them run an OS
+* Manufacturers 
 
 
 ## What's a PFC?
@@ -95,27 +97,3 @@ _"Quote that summarizes the protocol..."_
 <!--This image was provided by the organizers to encourage the attendees to rate the session. There's a similar image at the beginning of the presentation. Instead of Markdown, HTML is used to make sure the picture is adequately scaled.-->
 
 <img src="assets/outro-ams17.png" alt="GOTO Rate Intro" style="width: 100%"/>
-
-<!-- DISCARDED / BACKUP SLIDES
-
-## IoT Protocols: MQTT, CoAP, HTTP & WebSockets
-
-IoT is a buzzword. As a developer, I’m sure you’ve heard it many times - so many times that you probably tune it out as background noise at this point. Don’t let that phase you. IoT is nothing but a name for a set of ideas that you as developer should consider seriously. In this talk we'll take a practical - with demos - tour into application protocols for IoT.
-
-### Outline of today's talk:
-
-* MQTT
-* CoAP
-* HTTP
-* WebSockets
-* When **to use (or not!)** each of these protocols
-
-------------------
-
-## Bonus
-
-* Adoption of these protocols in the **industrial world**
-* Integration with existing fieldbuses
-* And of course... **DEMOS!**
-
--->
