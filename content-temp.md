@@ -4,29 +4,11 @@
 <br>
 <img src="assets/intermission.jpg" alt="GOTO Rate Intro" style="width: 100%"/>
 
-------------------
-
-
-## HTTP
-
-_"Quote that summarizes the protocol..."_
-
-* Standard:
-* Bla bla bla
-
-------------------
-
-## WebSockets
-
-_"Quote that summarizes the protocol..."_
-
-* Standard:
-* Bla bla bla
 
 ------------------
 
 <div class="vertically-centered"><font size="100%"><span style="line-height:150%">
-Get Tough: Adoption of IoT Protocols in Industry
+Adoption of IoT Protocols in Industry
 </span></font></div>
 
 
@@ -39,9 +21,10 @@ _"Industrial, digital bus used for real-time distributed control."_
 * Allows different topologies (daisy-chain, tree, etc.)
 * Bla bla bla
 
+
 ------------------
 
-## Fieldbus standards
+## Fieldbus and Industrial Ethernet standards
 
 * Modbus RTU (serial) (published in **1979!**)
 * Modbus TCP (Ethernet)
@@ -61,7 +44,6 @@ _"Industrial, digital bus used for real-time distributed control."_
 * CAN (a _vehicle bus_ in reality)
 * 
 
-------------------
 
 ## What's a PFC?
 
@@ -71,7 +53,6 @@ _"Industrial, digital bus used for real-time distributed control."_
 * They often support different fieldbuses by default
 * Easily expandable (new I/O modules can be attached, motor drivers, etc.)
 
-------------------
 
 ## What's a PFC?
 

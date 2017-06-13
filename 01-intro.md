@@ -1,5 +1,5 @@
 % A Gentle Introduction to IoT Protocols: MQTT, CoAP, HTTP & WebSockets  
-% Antonio Almeida and Jaime Gonz·lez-Arintero  
+% Antonio Almeida and Jaime Gonz√°lez-Arintero  
 % June 14, 2017
 
 ------------------
@@ -45,7 +45,7 @@ Why more protocols?
 
 <p style="text-align:center;">
 <!-- Use the image from La Dolce Vita -->
-<img src="assets/marcello_mastroiani_la_dolce_vita.png" alt="Arpanet" style="width: 80%"/>
+<img src="assets/why-more-protocols.jpg" alt="Why more protocols?" style="width: 80%"/>
 </p>
 
 ## Connected devices
@@ -78,8 +78,45 @@ Why more protocols?
 * Unreliable networking
 * Low power _(so they can run on batteries)_
 
-## Internet a definition
 
-> a computer network consisting of a worldwide network 
-> of computer networks that use the TCP/IP network protocols
-> to facilitate data transmission and exchange
+## Internet: A definition
+
+> "A computer network consisting of a worldwide network of computer networks that use the TCP/IP network protocols to facilitate data transmission and exchange."
+
+
+## Several types of networks & protocols &mdash; industrial
+
+<p style="text-align:center;">
+<img src="assets/industrial-protocols-overview.jpg" alt="Industrial protocols overview" style="width: 80%"/>
+</p>
+
+
+## Other protocols &mdash; building management
+
+<p style="text-align:center;">
+<img src="assets/bms-protocols-overview.jpg" alt="BMS protocols overview" style="width: 80%"/>
+</p>
+
+
+## _Edge_ has devices &mdash; _Cloud_ has servers
+
+<p style="text-align:center;">
+<!-- image for edge + cloud --> 
+<img src="assets/edge-cloud.png" alt="Edge and cloud" style="width: 80%"/>
+</p>
+
+
+## Edge 
+
+<p style="text-align:center; font-size:x-large;">
+devices != gateways
+</p>
+
+<br/>
+
+* Devices talk to other **devices northbound and southbound** 
+* Gateways talk to the **cloud northbound and devices southbound**
+* Device to device **(D2D)**
+* Device to cloud **(D2C)**
+
+------------------

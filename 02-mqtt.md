@@ -40,6 +40,7 @@ _"Publish-subscribe-based "lightweight" messaging protocol, for use on top of th
 
 ## MQTT: Publishing to a topic
 
+<br/>
 <p style="text-align:center;">
 <br/>
 <img src="assets/mqtt-publish.png" alt="MQTT: Publishing" style="width: 50%;"/>
@@ -65,6 +66,8 @@ _(to subscribe to **all the readings** in all the rooms of the ground floor, **n
 
 ### >_ QoS can be 0, 1, or 2
 
+<br/>
+
 * 0: The broker/client will deliver the message once, with no confirmation.
 * 1: The broker/client will deliver the message at least once, with confirmation required.
 * 2: The broker/client will deliver the message exactly once by using a four step handshake.
@@ -72,6 +75,7 @@ _(to subscribe to **all the readings** in all the rooms of the ground floor, **n
 
 ## MQTT: Last will and testament
 
+<br/>
 <p style="text-align:center;">
 <br/>
 <img src="assets/mqtt-last-will-and-testament.png" alt="MQTT: Last will" style="width: 50%;"/>
@@ -81,6 +85,8 @@ _(to subscribe to **all the readings** in all the rooms of the ground floor, **n
 ## MQTT: Learn more
 
 There are client libraries and wrappers for practically all languages used in M2M setups, as well as different brokers/servers.
+
+<br/>
 
 * Learn more: **[mqtt.org](http://mqtt.org)**
 * Software: **[mqtt.org/software](http://mqtt.org/software)**
