@@ -62,6 +62,32 @@ With all HTML slide formats, the `--self-contained` option can be used to produc
 
 --- WORK IN PROGRESS! ---
 
+## Bonus: Customizing the Current Stylesheet
+
+The easiest way is to create a custom Slidy template with a different stylesheet link. First, to get your own copy of the default template, run the following command on the folder of the presentation:  
+`$ pandoc -D slidy > my.slidy`
+
+Now, create a stylesheet, and place it on the root folder. For convenience, in this tutorial it was named `style.css`, and it was based in the content on the original "blank" Slidy template. Should you need such style sheet as a template, it's available [here](https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css).
+
+The next step consists on changing the reference to your preferred style sheet in the `my.slidy` file. Open it with a text editor, and modify the following lines: 
+
+```html
+$endif$
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="$slidy-url$/styles/slidy.css" />
+```
+
+The result should look like this. Note how `href` has changed:
+
+```html
+$endif$
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="style.css" />
+```
+
+Once ready, to use your custom stylesheet simply run Pandoc with the following options:  
+`$ pandoc -s -t slidy --template my.slidy content.md -o temp.html`
+
 ## To-Do
 
 * **FIRST OF ALL... FINISH THE CONTENT!**
@@ -70,4 +96,4 @@ With all HTML slide formats, the `--self-contained` option can be used to produc
 * Add pics of IO-Link devices.
 * Brief mention of the [Mitsubishi MELSEC-Q Series](http://www.mitsubishielectric.com/fa/products/cnt/plcq/items/)
 * Add pics of different Linux-capable PFCs (Wago, Beckhoff).
-* Add pics of industrial-grade gateways .
+* Add pics of industrial-grade gateways.
