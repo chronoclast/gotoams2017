@@ -88,6 +88,10 @@ $endif$
 Once ready, to use your custom stylesheet simply run Pandoc with the following options:  
 `$ pandoc -s -t slidy --template my.slidy content.md -o temp.html`
 
+## References & Recommended Resources 
+
+* [ARM CoAP Tutorial](https://www.slideshare.net/zdshelby/coap-tutorial)
+
 ## To-Do
 
 * **FIRST OF ALL... FINISH THE CONTENT!**
