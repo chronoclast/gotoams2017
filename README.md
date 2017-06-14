@@ -1,5 +1,3 @@
-### --- WORK IN PROGRESS! ---
-
 # A Gentle introduction to IoT protocols: MQTT, CoAP, HTTP & WebSockets
 
 ####_A presentation by Antonio Almeida & Jaime González-Arintero for the [GOTO Conference Amsterdam 2017](https://gotoams.nl/2017/sessions/126)._
@@ -53,14 +51,13 @@ In Windows systems, simply download and execute the installer `pandoc-1.19.2.1-w
 ### In HTML (interactive, using Slidy)
 
 **To produce an interactive presentation in HTML & JavaScript**, using [Slidy](https://www.w3.org/Talks/Tools/Slidy2/#(1)), head to the the path of the cloned repository (or wherever the folder with this content was downloaded and unpacked), and run the following command:   
-`$ pandoc -s -i -t slidy content.md -o presentation.html`
+
+    pandoc -s -t slidy --template my.slidy 0*.md -o presentation.html
 
 With all HTML slide formats, the `--self-contained` option can be used to produce a single file that contains all of the data necessary to display the slide show, including linked scripts, stylesheets, images, and videos. If so, the command will look like:  
-`$ pandoc -s --self-contained -i -t slidy content.md -o presentation.html`
 
-### In PDF (using the LaTeX beamer class)
+    pandoc -s -t slidy --template my.slidy --self-contained 0*.md -o presentation.html
 
---- WORK IN PROGRESS! ---
 
 ## Bonus: Customizing the Current Stylesheet
 
@@ -86,18 +83,9 @@ $endif$
 ```
 
 Once ready, to use your custom stylesheet simply run Pandoc with the following options:  
-`$ pandoc -s -t slidy --template my.slidy content.md -o temp.html`
+    
+    pandoc -s -t slidy --template my.slidy content.md -o temp.html
 
 ## References & Recommended Resources 
 
 * [ARM CoAP Tutorial](https://www.slideshare.net/zdshelby/coap-tutorial)
-
-## To-Do
-
-* **FIRST OF ALL... FINISH THE CONTENT!**
-* Explain all the options of the Pandoc issued commands.
-* Explain how to generate a PDF with the beamer class.
-* Add pics of IO-Link devices.
-* Brief mention of the [Mitsubishi MELSEC-Q Series](http://www.mitsubishielectric.com/fa/products/cnt/plcq/items/)
-* Add pics of different Linux-capable PFCs (Wago, Beckhoff).
-* Add pics of industrial-grade gateways.

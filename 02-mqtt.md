@@ -90,7 +90,7 @@ There are client libraries and wrappers for practically all languages used in M2
 
 * Learn more: **[mqtt.org](http://mqtt.org)**
 * Software: **[mqtt.org/software](http://mqtt.org/software)**
-* Recommended broker: **Mosquitto ([mosquitto.org](https://mosquitto.org))**
+* Recommended broker (C): **Mosquitto ([mosquitto.org](https://mosquitto.org))**
 * Lots of good tutorials out there
 
 ------------------

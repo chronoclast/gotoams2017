@@ -52,7 +52,7 @@ _"A specialized web transfer protocol for use with constrained nodes and constra
 ## CoAP: Functionalities
 
 <br/>
-* URI* GET/PUT/POST/DELETE* Content-type support (XML, JSON, CBOR..)* **Built-in discovery*** **Multicast support*** Asynchronous message exchanges* Designed to be extensible
+* URI* GET / POST / PUT / DELETE* Content-type support (XML, JSON, CBOR,...)* **Built-in discovery** &mdash; `.well-known/core`* **Multicast support*** Asynchronous message exchanges* Designed to be extensible
 
 
 ## CoAP: Client / Server
@@ -116,8 +116,8 @@ _"A specialized web transfer protocol for use with constrained nodes and constra
 
 <br/>
 
-* CoAP is reliable by itself
-* Retransmissions of messages occur in exponentially incrementing intervals **(congestion control)*** These features can be disabled, if speed is the goal
+* Message reliability is handled at the application layer (UDP)
+* Congestion control (retransmits increase exponentially up to 247 s) &mdash; further improvements coming* These features can be disabled, if speed is the goal
 
 
 ## CoAP: Reliability
@@ -128,14 +128,15 @@ _"A specialized web transfer protocol for use with constrained nodes and constra
 </p>
 
 
-## CoAP: Observing resources
+## CoAP: Observing resources I
 
 <br/>
 
 * Protocol extension for CoAP: RFC 7641* Client interested in a resource over period of time* Observer pattern
+* Server ~ Client (constrained device acts as a server)
 
 
-## CoAP: Observing resources
+## CoAP: Observing resources II
 
 <br/>
 <p style="text-align:center">
@@ -143,7 +144,7 @@ _"A specialized web transfer protocol for use with constrained nodes and constra
 </p>
 
 
-## CoAP: Observing resources
+## CoAP: Observing resources III
 
 <br/>
 
@@ -151,6 +152,8 @@ _"A specialized web transfer protocol for use with constrained nodes and constra
 * It transfers larger resource representations than can be usually accommodated in constrained networks
 * Response is split in blocks
 * Both sides have a say in the block size that actually will used
+* CoAP over TCP being drafted
+* Authentication & authorization inspired by OAUTH and JWT
 
 
 ## CoAP: Learn more

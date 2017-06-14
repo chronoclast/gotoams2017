@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Antonio Almeida and Jaime González-Arintero" />
+  <meta name="date" content="2017-06-14" />
+  <title>A Gentle Introduction to IoT Protocols: MQTT, CoAP, HTTP &amp; WebSockets</title>
+  <style type="text/css">code{white-space: pre;}</style>
+
+<!--
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+-->
+
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="style.css" />
+
+  <script src="http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">A Gentle Introduction to IoT Protocols: MQTT, CoAP, HTTP &amp; WebSockets</h1>
+  <p class="author">
+Antonio Almeida and Jaime González-Arintero
+  </p>
+  <p class="date">June 14, 2017</p>
+</div>
+<div class="slide section level2">
+
+<!--This image was provided by the organizers to encourage the attendees to rate the session. There's a similar image at the end of the presentation. Instead of Markdown, HTML is used to make sure the picture is adequately scaled.-->
+<p style="text-align:center;">
+<img src="assets/intro-ams17.png" alt="GOTO Rate Intro" style="width: 100%"/>
+</p>
+</div>
+<div id="visionaries" class="slide section level2">
+<h2>Visionaries</h2>
+<h3 id="on-line-man-computer-communication-1962">&gt;_ On-line Man-Computer Communication, 1962</h3>
+<p style="text-align:center;">
+<img src="assets/visionaries-on-line-man-machine.png" alt="On-line Man-Computer Communication" style="width: 80%"/>
+</p>
+</div>
+<div id="visionaries-1" class="slide section level2">
+<h2>Visionaries</h2>
+<h3 id="the-computer-as-a-communication-device-1968">&gt;_ The Computer as a Communication Device, 1968</h3>
+<p style="text-align:center;">
+<img src="assets/visionaries-computer-as-a-communication-device.png" alt="The Computer as a Communication Device" style="width: 80%"/>
+</p>
+</div>
+<div id="arpanet" class="slide section level2">
+<h2>Arpanet</h2>
+<p style="text-align:center;">
+<img src="assets/arpanet.png" alt="Arpanet" style="width: 80%"/>
+</p>
+</div>
+<div id="why-more-protocols" class="slide section level2">
+<h2>Why more protocols?</h2>
+<p style="text-align:center;">
+<!-- Use the image from La Dolce Vita -->
+<img src="assets/why-more-protocols.jpg" alt="Why more protocols?" style="width: 80%"/>
+</p>
+</div>
+<div id="connected-devices" class="slide section level2">
+<h2>Connected devices</h2>
+<h3 id="some-figures...">&gt;_ Some figures...</h3>
+<p style="text-align:center;">
+<img src="assets/machines-go-online.png" alt="Machines Go Online" style="width: 60%"/>
+<blockquote style="float:right">
+-MIT Technology Review, 2014
+</blockquote>
+<br clear="all" />
+</p>
+</div>
+<div id="connected-devices-1" class="slide section level2">
+<h2>Connected devices</h2>
+<h3 id="some-figures...-1">&gt;_ Some figures...</h3>
+<ul>
+<li>14 bn connected devices | Bosch SI</li>
+<li>50 bn connected devices | Cisco</li>
+<li>309 bn IoT supplier revenue | Gartner</li>
+<li>1.9 tn IoT economic value add | Gartner</li>
+<li>7.1 tn IoT solutions revenue | IDC</li>
+</ul>
+<blockquote>
+<p><em>By 2020, component costs will have come down to the point that connectivity will become standard feature, even for processors costing <strong>less than $1</strong>.</em><br />
+- Peter Middleton, Gartner</p>
+</blockquote>
+</div>
+<div id="constrained-devices" class="slide section level2">
+<h2>Constrained devices</h2>
+<p><br/></p>
+<ul>
+<li>IETF Definition: <strong><a href="https://tools.ietf.org/html/rfc7228"><code>tools.ietf.org/html/rfc7228</code></a></strong></li>
+<li>Limited processing power</li>
+<li>Unreliable networking</li>
+<li>Low power <em>(so they can run on batteries)</em></li>
+</ul>
+</div>
+<div id="internet-a-definition" class="slide section level2">
+<h2>Internet: A definition</h2>
+<p><br/> <br/></p>
+<blockquote>
+<p>&quot;A computer network consisting of a worldwide network of computer networks that use the TCP/IP network protocols to facilitate data transmission and exchange.&quot;</p>
+</blockquote>
+</div>
+<div id="several-types-of-networks-protocols-industrial" class="slide section level2">
+<h2>Several types of networks &amp; protocols — industrial</h2>
+<p style="text-align:center;">
+<img src="assets/industrial-protocols-overview.jpg" alt="Industrial protocols overview" style="width: 80%"/>
+</p>
+</div>
+<div id="other-protocols-building-management" class="slide section level2">
+<h2>Other protocols — building management</h2>
+<p style="text-align:center;">
+<img src="assets/bms-protocols-overview.jpg" alt="BMS protocols overview" style="width: 70%"/>
+</p>
+</div>
+<div id="edge-has-devices-cloud-has-servers" class="slide section level2">
+<h2><em>Edge</em> has devices — <em>Cloud</em> has servers</h2>
+<p><br/></p>
+<p style="text-align:center;">
+<!-- image for edge + cloud -->
+<img src="assets/edge-cloud.png" alt="Edge and cloud" style="width: 80%"/>
+</p>
+</div>
+<div id="edge" class="slide section level2">
+<h2>Edge</h2>
+<p style="text-align:center; font-size:40px;">
+devices != gateways
+</p>
+<p><br/></p>
+<ul>
+<li>Devices talk to other <strong>devices northbound and southbound</strong></li>
+<li>Gateways talk to the <strong>cloud northbound and devices southbound</strong></li>
+<li>Device to device <strong>(D2D)</strong></li>
+<li>Device to cloud <strong>(D2C)</strong></li>
+</ul>
+</div>
+<div class="slide section level2">
+
+<!--MQTT-->
+<div class="vertically-centered">
+<font size="150%"> MQTT </font>
+</div>
+</div>
+<div id="mqtt-basics" class="slide section level2">
+<h2>MQTT: Basics</h2>
+<p><strong>M</strong>essage <strong>Q</strong>ueue <strong>T</strong>elemetry <strong>T</strong>ransport</p>
+<p><em>&quot;Publish-subscribe-based &quot;lightweight&quot; messaging protocol, for use on top of the TCP/IP protocol.&quot;</em></p>
+<ul>
+<li>Publish-subscribe</li>
+<li>A <strong>message broker</strong> is required</li>
+<li>Standard: ISO/IEC PRF 20922</li>
+<li>Small code footprint</li>
+<li>Limited network bandwidth / constrained environments</li>
+<li>Developed in 1999 (and released royalty free in 2010)</li>
+<li>Data agnostic</li>
+</ul>
+</div>
+<div id="mqtt-publish-subscribe-model" class="slide section level2">
+<h2>MQTT: Publish-subscribe model</h2>
+<br/>
+<p style="text-align:center;">
+<br/> <img src="assets/mqtt-simplified.png" alt="MQTT: Publish-subscribe model" style="width: 100%;"/>
+</p>
+</div>
+<div id="mqtt-connecting-to-the-broker" class="slide section level2">
+<h2>MQTT: Connecting to the broker</h2>
+<p style="text-align:center;">
+<br/> <img src="assets/mqtt-connection.png" alt="MQTT: Connecting" style="width: 100%;"/>
+</p>
+</div>
+<div id="mqtt-publishing-to-a-topic" class="slide section level2">
+<h2>MQTT: Publishing to a topic</h2>
+<br/>
+<p style="text-align:center;">
+<br/> <img src="assets/mqtt-publish.png" alt="MQTT: Publishing" style="width: 50%;"/>
+</p>
+</div>
+<div id="mqtt-subscribing-to-a-topic" class="slide section level2">
+<h2>MQTT: Subscribing to a topic</h2>
+<h3 id="example-topics">&gt;_ Example topics</h3>
+<ul>
+<li>Topic #1: <code>home/groundfloor/kitchen/temperature</code></li>
+<li>Topic #2: <code>office/conferenceroom/luminance</code></li>
+</ul>
+<h3 id="wild-cards">&gt;_ Wild cards</h3>
+<ul>
+<li>Single-level: <code>home/groundfloor/+/temperature</code><br />
+<em>(to subscribe to <strong>all the temperature readings</strong> in all the rooms of the ground floor)</em></li>
+<li>Multi-level: <code>home/groundfloor/#</code><br />
+<em>(to subscribe to <strong>all the readings</strong> in all the rooms of the ground floor, <strong>not only the temperature</strong>)</em></li>
+</ul>
+</div>
+<div id="mqtt-quality-of-service" class="slide section level2">
+<h2>MQTT: Quality of Service</h2>
+<h3 id="qos-can-be-0-1-or-2">&gt;_ QoS can be 0, 1, or 2</h3>
+<p><br/></p>
+<ul>
+<li>0: The broker/client will deliver the message once, with no confirmation.</li>
+<li>1: The broker/client will deliver the message at least once, with confirmation required.</li>
+<li>2: The broker/client will deliver the message exactly once by using a four step handshake.</li>
+</ul>
+</div>
+<div id="mqtt-last-will-and-testament" class="slide section level2">
+<h2>MQTT: Last will and testament</h2>
+<br/>
+<p style="text-align:center;">
+<br/> <img src="assets/mqtt-last-will-and-testament.png" alt="MQTT: Last will" style="width: 50%;"/>
+</p>
+</div>
+<div id="mqtt-learn-more" class="slide section level2">
+<h2>MQTT: Learn more</h2>
+<p>There are client libraries and wrappers for practically all languages used in M2M setups, as well as different brokers/servers.</p>
+<p><br/></p>
+<ul>
+<li>Learn more: <strong><a href="http://mqtt.org">mqtt.org</a></strong></li>
+<li>Software: <strong><a href="http://mqtt.org/software">mqtt.org/software</a></strong></li>
+<li>Recommended broker (C): <strong>Mosquitto (<a href="https://mosquitto.org">mosquitto.org</a>)</strong></li>
+<li>Lots of good tutorials out there</li>
+</ul>
+</div>
+<div class="slide section level2">
+
+<!--CoAP-->
+<div class="vertically-centered">
+<font size="150%"> CoAP </font>
+</div>
+</div>
+<div id="coap-basics" class="slide section level2">
+<h2>CoAP: Basics</h2>
+<p><strong>Co</strong>nstrained <strong>A</strong>pplication <strong>P</strong>rotocol</p>
+<p><em>&quot;A specialized web transfer protocol for use with constrained nodes and constrained networks in the Internet of Things.&quot;</em></p>
+<p><br/></p>
+<ul>
+<li>CoRE, IETF group</li>
+<li>Proposed standard: RFC 7252</li>
+<li><strong>CoAP ~ lightweight fast HTTP</strong></li>
+<li>Designed for manipulation of simple resources on constrained node networks</li>
+</ul>
+</div>
+<div id="coap-restful-environment" class="slide section level2">
+<h2>CoAP: RESTful environment</h2>
+<br/>
+<p style="text-align:center;">
+<img src="assets/coap-rest.png" alt="CoAP: RESTful environment" style="width: 80%;"/>
+</p>
+</div>
+<div id="coap-inspired-by-http" class="slide section level2">
+<h2>CoAP: Inspired by HTTP</h2>
+<br/>
+<p style="text-align:center;">
+<img src="assets/coap-inspired-by-http.png" alt="CoAP: Inspired by HTTP" style="width: 80%;"/>
+</p>
+</div>
+<div id="coap-----proxy-----http" class="slide section level2">
+<h2>CoAP &lt;---&gt; Proxy &lt;---&gt; HTTP</h2>
+<br/>
+<p style="text-align:center;">
+<img src="assets/coap-and-http.png" alt="CoAP: Inspired by HTTP" style="width: 80%;"/>
+</p>
+</div>
+<div id="coap-http-vs-coap" class="slide section level2">
+<h2>CoAP: HTTP vs CoAP</h2>
+<br/>
+<p style="text-align:center;">
+<img src="assets/coap-vs-http.png" alt="HTTP vs. CoAP" style="width: 100%;"/>
+</p>
+</div>
+<div id="coap-functionalities" class="slide section level2">
+<h2>CoAP: Functionalities</h2>
+<p><br/></p>
+<ul>
+<li>URI</li>
+<li>GET / POST / PUT / DELETE</li>
+<li>Content-type support (XML, JSON, CBOR,...)</li>
+<li><strong>Built-in discovery</strong> — <code>.well-known/core</code></li>
+<li><strong>Multicast support</strong></li>
+<li>Asynchronous message exchanges</li>
+<li>Designed to be extensible</li>
+</ul>
+</div>
+<div id="coap-client-server" class="slide section level2">
+<h2>CoAP: Client / Server</h2>
+<p style="text-align:center;">
+<img src="assets/coap-client-server.png" alt="CoAP: Client-server" style="height: 70%; width: 70%"/>
+</p>
+</div>
+<div id="coap-message-format" class="slide section level2">
+<h2>CoAP: Message format</h2>
+<br>
+<p style="text-align:center;">
+<img src="assets/coap-message-format.png" alt="CoAP: Client-server" style="width: 80%;"/>
+</p>
+<!-- TABLE IN ASCII, just because it's cool!
+
+```
+0                   1                   2                   3
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|Ver| T |  TKL  |      Code     |          Message ID           |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|   Token (if any, TKL bytes) ...
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|   Options (if any) ...
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|1 1 1 1 1 1 1 1|    Payload (if any) ...
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+```
+
+-->
+</div>
+<div id="coap-confirmable" class="slide section level2">
+<h2>CoAP: Confirmable</h2>
+<br/>
+<p style="text-align:center;">
+<img src="assets/coap-confirmable.png" alt="CoAP: Confirmable" style="height: 300px;"/>
+</p>
+</div>
+<div id="coap-non-confirmable" class="slide section level2">
+<h2>CoAP: Non-confirmable</h2>
+<br/>
+<p style="text-align:center;">
+<img src="assets/coap-non-confirmable.png" alt="CoAP: Non-confirmable" style="height: 300px;"/>
+</p>
+</div>
+<div id="coap-reset" class="slide section level2">
+<h2>CoAP: Reset</h2>
+<br/>
+<p style="text-align:center;">
+<img src="assets/coap-reset.png" alt="CoAP: Reset" style="height: 300px;"/>
+</p>
+</div>
+<div id="coap-reliability" class="slide section level2">
+<h2>CoAP: Reliability</h2>
+<p><br/></p>
+<ul>
+<li>Message reliability is handled at the application layer (UDP)</li>
+<li>Congestion control (retransmits increase exponentially up to 247 s) — further improvements coming</li>
+<li>These features can be disabled, if speed is the goal</li>
+</ul>
+</div>
+<div id="coap-reliability-1" class="slide section level2">
+<h2>CoAP: Reliability</h2>
+<br/>
+<p style="text-align:center;">
+<img src="assets/coap-reliability.png" alt="CoAP: Reliability" style="height: 300px;"/>
+</p>
+</div>
+<div id="coap-observing-resources-i" class="slide section level2">
+<h2>CoAP: Observing resources I</h2>
+<p><br/></p>
+<ul>
+<li>Protocol extension for CoAP: RFC 7641</li>
+<li>Client interested in a resource over period of time</li>
+<li>Observer pattern</li>
+<li>Server ~ Client (constrained device acts as a server)</li>
+</ul>
+</div>
+<div id="coap-observing-resources-ii" class="slide section level2">
+<h2>CoAP: Observing resources II</h2>
+<br/>
+<p style="text-align:center">
+<img src="assets/coap-resources.png" alt="CoAP: Observing resources" style="height: 350px;"/>
+</p>
+</div>
+<div id="coap-observing-resources-iii" class="slide section level2">
+<h2>CoAP: Observing resources III</h2>
+<p><br/></p>
+<ul>
+<li>Protocol extension for CoAP, draft</li>
+<li>It transfers larger resource representations than can be usually accommodated in constrained networks</li>
+<li>Response is split in blocks</li>
+<li>Both sides have a say in the block size that actually will used</li>
+<li>CoAP over TCP being drafted</li>
+<li>Authentication &amp; authorization inspired by OAUTH and JWT</li>
+</ul>
+</div>
+<div id="coap-learn-more" class="slide section level2">
+<h2>CoAP: Learn more</h2>
+<p><br/></p>
+<ul>
+<li>General info: <strong><a href="http://coap.technology"><code>coap.technology</code></a></strong></li>
+<li>Proposed standard: <strong><a href="https://tools.ietf.org/html/rfc7252"><code>tools.ietf.org/html/rfc7252</code></a></strong></li>
+<li>Copper (CoAP user-agent as a Firefox add-on): <strong><a href="https://github.com/mkovatsc/Copper"><code>github.com/mkovatsc/Copper</code></a></strong></li>
+<li>Several tutorials and cool features to discover</li>
+</ul>
+</div>
+<div class="slide section level2">
+
+<!--Intermission-->
+<p><br> <img src="assets/intermission.jpg" alt="GOTO Rate Intro" style="width: 100%"/></p>
+</div>
+<div class="slide section level2">
+
+<div class="vertically-centered">
+<font size="100%"><span style="line-height:150%"> IoT Protocols in Industry </span></font>
+</div>
+</div>
+<div id="whats-a-fieldbus" class="slide section level2">
+<h2>What's a Fieldbus?</h2>
+<p><em>&quot;Industrial, digital bus used for real-time distributed control.&quot;</em></p>
+<ul>
+<li>Mainly used in <strong>manufacturing</strong> (assembly lines, process control, etc.)</li>
+<li>Connects instruments in the shop-floor</li>
+<li>Allows different topologies (daisy-chain, tree, etc.)</li>
+<li>Controllers where originally connected through serial <em>(just picture the cable salads)</em>; a fieldbus solves that issue</li>
+<li>Cost-effective (less cables, easier maintenance)</li>
+</ul>
+</div>
+<div id="fieldbuses-fieldbuses-all-the-way..." class="slide section level2">
+<h2><em>Fieldbuses, fieldbuses all the way...</em></h2>
+<p style="text-align:center;">
+<img src="assets/industrial-protocols-overview.jpg" alt="Industrial protocols overview" style="width: 80%"/>
+</p>
+</div>
+<div id="fieldbus-and-industrial-ethernet-standards" class="slide section level2">
+<h2>Fieldbus and Industrial Ethernet standards</h2>
+<ul>
+<li>Modbus RTU (serial) (published in <strong>1979!</strong>)</li>
+<li>Modbus TCP (Ethernet)</li>
+<li>Profibus (serial)</li>
+<li>Profinet</li>
+<li>CAN (a <em>vehicle bus</em>, in reality)</li>
+<li>Bitbus</li>
+<li>EtherCAT</li>
+<li>DeviceNET</li>
+<li>BACnet (<em>Although I wouldn't call it a fielbus...</em>)</li>
+<li>And many, many more...</li>
+</ul>
+</div>
+<div id="just-a-normal-plc" class="slide section level2">
+<h2><em>Just a normal</em> PLC</h2>
+<p><img src="assets/plc-s7-cabinet.jpg" alt="PLC S7" style="width: 100%"/></p>
+</div>
+<div id="whats-a-pfc-with-an-f-i" class="slide section level2">
+<h2>What's a PFC? (with an F!) I</h2>
+<h3 id="programmable-fieldbus-controller">&gt;_ <strong>P</strong>rogrammable <strong>F</strong>ieldbus <strong>C</strong>ontroller</h3>
+<ul>
+<li>Not to be confused with a PLC (Programmable <strong>Logic</strong> Controller)</li>
+<li>They often support different fieldbuses by default</li>
+<li>Easily expandable (new I/O modules can be attached, motor drivers, etc.)</li>
+<li>Most of them <strong>run an OS</strong> (and it's possible to create custom images)</li>
+</ul>
+</div>
+<div id="whats-a-pfc-with-an-f-ii" class="slide section level2">
+<h2>What's a PFC? (with an F!) II</h2>
+<h3 id="programmable-fieldbus-controller-1">&gt;_ <strong>P</strong>rogrammable <strong>F</strong>ieldbus <strong>C</strong>ontroller</h3>
+<ul>
+<li>Manufacturers provide <strong>SDKs in different languages</strong></li>
+<li>Connectivity (at least 2x network interfaces, WiFi, 3G/LTE failover, serial, etc.)</li>
+<li>More and more have <strong>built-in HTTP APIs</strong></li>
+<li>Most of them integrate web servers for configuration, HMIs or SCADA functionalities</li>
+<li>They may replace the proprietary automation software suites</li>
+</ul>
+</div>
+<div id="whats-a-pfc" class="slide section level2">
+<h2>What's a PFC?</h2>
+<p><img src="assets/pfc-wago.jpg" alt="IO-Link example topology" style="width: 100%"/></p>
+</div>
+<div id="io-link-state-of-the-art" class="slide section level2">
+<h2>IO-Link: <em>State of the art</em></h2>
+<p><em>&quot;IO-Link is the first standardised IO technology worldwide (IEC 61131-9) for the communication with sensors and actuators. <strong>IO-Link is no fieldbus</strong> but the further development of the existing, tried-and-tested connection technology.&quot;</em></p>
+<ul>
+<li>3-wire connections</li>
+<li>Smart sensors: they work out-of-the-box, and they &quot;identify&quot; themselves</li>
+<li>Descriptive files that include information of the manufacturer, the type, and the calibration</li>
+<li>Sensors can be replaced, and the calibration and specs file updated remotely</li>
+<li>IO-Link masters support different fieldbus and Industrial Ethernet standards</li>
+</ul>
+</div>
+<div id="io-link-topology-example" class="slide section level2">
+<h2>IO-Link: Topology example</h2>
+<p style="text-align:center;">
+<img src="assets/io-link-topology.jpg" alt="Industrial protocols overview" style="width: 80%"/>
+</p>
+</div>
+<div id="io-link-master-sensor-aggregator" class="slide section level2">
+<h2>IO-Link: Master / sensor aggregator</h2>
+<p><img src="assets/io-link-master-ay1020.jpg" alt="IO-Link example topology" style="width: 100%"/></p>
+</div>
+<div id="section" class="slide section level2">
+<h2><!--
+------------------
+
+## OPC-UA: _State of the art_
+
+_"Quote that summarizes the protocol..."_
+
+* **Not a protocol**, but a "unified architecture"
+* Bla bla bla
+
+--></h2>
+<div class="vertically-centered">
+<font size="100%"><span style="line-height:150%"> A glimpse into the future </span></font>
+</div>
+</div>
+<div class="slide section level2">
+
+<br/>
+<p style="text-align:center;">
+<img src="assets/closer-than-we-think.jpg" alt="Future Factory Farms" style="width: 100%"/>
+</p>
+</div>
+<div id="information-centric-networking-icn-vs-host-centric-networking-hcn" class="slide section level2">
+<h2>Information Centric Networking (ICN) vs Host Centric Networking (HCN)</h2>
+<p style="text-align:center;">
+<img src="assets/icn.png" alt="ICN" style="width: 60%"/>
+</p>
+<ul>
+<li>HCN: Conversation between <strong>hosts</strong> — <strong>who</strong> to talk to.</li>
+<li>ICN: Spreads <strong>data</strong> objects — <strong>what</strong> to say</li>
+</ul>
+</div>
+<div id="data-distribution-service-dds" class="slide section level2">
+<h2>Data Distribution Service (DDS)</h2>
+<p style="text-align:center;">
+<img src="assets/dds.jpg" alt="Data Distribution Service" style="width: 80%"/>
+</p>
+</div>
+<div id="dds-in-a-nutshell" class="slide section level2">
+<h2>DDS in a nutshell</h2>
+<ul>
+<li>Has been around for some time — DDS 1.0 (2005).</li>
+<li>Main entities:
+<ul>
+<li>Domain Participant</li>
+<li>Data Writer</li>
+<li>Publisher</li>
+<li>Data Reader</li>
+<li>Subscriber</li>
+<li>Topic</li>
+</ul></li>
+<li>All networking is abstracted. Usually implemented on top of raw sockets</li>
+<li>Anycasting and Multicasting</li>
+</ul>
+</div>
+<div id="icn-in-a-nutshell-i" class="slide section level2">
+<h2>ICN in a nutshell I</h2>
+<ul>
+<li>Shares <em>packet forwarding</em> with IP mostly</li>
+<li>Outline of request - response
+<ul>
+<li><strong>Consumer</strong> requests <strong>named data</strong>: <strong>Interest</strong></li>
+<li><strong>Interest</strong> is forwarded to a place (or places) where named data exists</li>
+<li><strong>Forwarder</strong> records the interface on which the Interest was received</li>
+<li><strong>Data</strong> is returned in a <strong>Content</strong> message</li>
+<li>Data in Content is <strong>signed</strong> to avoid tampering</li>
+</ul></li>
+<li>A lot of caching strategies possible — see the web</li>
+</ul>
+</div>
+<div id="icn-in-a-nutshell-ii" class="slide section level2">
+<h2>ICN in a nutshell II</h2>
+<ul>
+<li><strong>Communication</strong> between <strong>consumers</strong> and <strong>named data</strong></li>
+<li><strong>Forwarders</strong> interact with messages and maintain a state per-message (!== IP)</li>
+<li><strong>Data name</strong> instead of IP address</li>
+<li>Anycasting and Multicasting</li>
+<li><strong>Consumer</strong> can roam — easy mobility</li>
+</ul>
+</div>
+<div id="icn-in-a-nutshell-iii" class="slide section level2">
+<h2>ICN in a nutshell III</h2>
+<ul>
+<li>Is a research topic</li>
+<li>Many open questions:</li>
+<li>Routing
+<ul>
+<li>Congestion control</li>
+<li>Push (event) also, not only polling</li>
+</ul></li>
+<li>Multiple research projects: US, Europe</li>
+<li>Watch this space</li>
+</ul>
+</div>
+<div id="conclusions" class="slide section level2">
+<h2>Conclusions</h2>
+<ul>
+<li>There are many type of networks</li>
+<li>The protocol to use <strong>depends</strong> on what part of <strong>which</strong> network you are</li>
+<li><strong>Opinionated</strong> Cheatsheet:
+<ul>
+<li>MQTT: D2C or C2C</li>
+<li>CoAP: D2D</li>
+<li>HTTP/1.1: C2C</li>
+<li>HTTP/2: C2C — possibly D2C</li>
+<li>DDS: C2C &amp; D2C — claims of D2D seem exagerated</li>
+<li>WebSockets: C2C</li>
+</ul></li>
+<li>Operational Technology (OT) will be around for a long time</li>
+<li>No silver bullet</li>
+</ul>
+</div>
+<div id="about-us" class="slide section level2">
+<h2>About us</h2>
+<h3 id="antonio">&gt;_ Antonio</h3>
+<ul>
+<li><a href="https://github.com/perusio"><strong>GitHub</strong></a></li>
+<li><a href="https://www.linkedin.com/in/perusio"><strong>LinkedIn</strong></a></li>
+</ul>
+<h3 id="jaime">&gt;_ Jaime</h3>
+<ul>
+<li><a href="https://github.com/chronoclast"><strong>GitHub</strong></a></li>
+<li><a href="https://www.linkedin.com/in/jimtonic"><strong>LinkedIn</strong></a></li>
+</ul>
+<h3 id="this-presentation">&gt;_ This presentation</h3>
+<ul>
+<li><a href="http://tinyurl.com/gotoams2017-iot"><code>tinyurl.com/gotoams2017-iot</code></a></li>
+</ul>
+</div>
+<div id="questions" class="slide section level2">
+<h2>Questions?</h2>
+<p style="text-align:center;">
+<img src="assets/cliffhanger-cat-cropped.png" alt="Cliffhanger with cats" style="width: 60%"/>
+</p>
+</div>
+<div class="slide section level2">
+
+<!--This image was provided by the organizers to encourage the attendees to rate the session. There's a similar image at the beginning of the presentation. Instead of Markdown, HTML is used to make sure the picture is adequately scaled.-->
+<p><img src="assets/outro-ams17.png" alt="GOTO Rate Intro" style="width: 100%"/></p>
+</div>
+</body>
+</html>

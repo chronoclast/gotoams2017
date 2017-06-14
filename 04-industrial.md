@@ -21,8 +21,12 @@ _"Industrial, digital bus used for real-time distributed control."_
 * Allows different topologies (daisy-chain, tree, etc.)
 * Controllers where originally connected through serial _(just picture the cable salads)_; a fieldbus solves that issue
 * Cost-effective (less cables, easier maintenance)
-* 
 
+## _Fieldbuses, fieldbuses all the way..._
+
+<p style="text-align:center;">
+<img src="assets/industrial-protocols-overview.jpg" alt="Industrial protocols overview" style="width: 80%"/>
+</p>
 
 ## Fieldbus and Industrial Ethernet standards
 
@@ -35,7 +39,7 @@ _"Industrial, digital bus used for real-time distributed control."_
 * EtherCAT
 * DeviceNET
 * BACnet (_Although I wouldn't call it a fielbus..._)
-* Etc.
+* And many, many more...
 
 
 ## _Just a normal_ PLC
@@ -43,19 +47,26 @@ _"Industrial, digital bus used for real-time distributed control."_
 <img src="assets/plc-s7-cabinet.jpg" alt="PLC S7" style="width: 100%"/>
 
 
-## What's a PFC? (with an F!)
+## What's a PFC? (with an F!) I
 
-**P**rogrammable **F**ieldbus **C**ontroller
+### >_ **P**rogrammable **F**ieldbus **C**ontroller
 
 * Not to be confused with a PLC (Programmable **Logic** Controller)
 * They often support different fieldbuses by default
 * Easily expandable (new I/O modules can be attached, motor drivers, etc.)
 * Most of them **run an OS** (and it's possible to create custom images)
+
+
+## What's a PFC? (with an F!) II
+
+### >_ **P**rogrammable **F**ieldbus **C**ontroller
+
 * Manufacturers provide **SDKs in different languages**
 * Connectivity (at least 2x network interfaces, WiFi, 3G/LTE failover, serial, etc.)
 * More and more have **built-in HTTP APIs**
-* Most provide web servers for configuration, HMIs or SCADA functionalities
+* Most of them integrate web servers for configuration, HMIs or SCADA functionalities
 * They may replace the proprietary automation software suites
+
 
 ## What's a PFC?
 
@@ -64,23 +75,29 @@ _"Industrial, digital bus used for real-time distributed control."_
 
 ## IO-Link: _State of the art_
 
-_"Quote that summarizes the protocol..."_
+_"IO-Link is the first standardised IO technology worldwide (IEC 61131-9) for the communication with sensors and actuators. **IO-Link is no fieldbus** but the further development of the existing, tried-and-tested connection technology."_
 
-* **Not a fieldbus**
-* Bla bla bla
+* 3-wire connections
+* Smart sensors: they work out-of-the-box, and they "identify" themselves
+* Descriptive files that include information of the manufacturer, the type, and the calibration
+* Sensors can be replaced, and the calibration and specs file updated remotely
+* IO-Link masters support different fieldbus and Industrial Ethernet standards
 
 
 ## IO-Link: Topology example
 
-<div class="vertically-centered" style="height: 100%">
-<img src="assets/io-link-topology.jpg" alt="IO-Link example topology"/>
-</div>
+<p style="text-align:center;">
+<img src="assets/io-link-topology.jpg" alt="Industrial protocols overview" style="width: 80%"/>
+</p>
+
 
 
 ## IO-Link: Master / sensor aggregator
 
 <img src="assets/io-link-master-ay1020.jpg" alt="IO-Link example topology" style="width: 100%"/>
 
+
+<!--
 ------------------
 
 ## OPC-UA: _State of the art_
@@ -90,8 +107,6 @@ _"Quote that summarizes the protocol..."_
 * **Not a protocol**, but a "unified architecture"
 * Bla bla bla
 
+-->
+
 ------------------
-
-<!--This image was provided by the organizers to encourage the attendees to rate the session. There's a similar image at the beginning of the presentation. Instead of Markdown, HTML is used to make sure the picture is adequately scaled.-->
-
-<img src="assets/outro-ams17.png" alt="GOTO Rate Intro" style="width: 100%"/>
