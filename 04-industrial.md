@@ -97,6 +97,11 @@ _"IO-Link is the first standardised IO technology worldwide (IEC 61131-9) for th
 <img src="assets/io-link-master-ay1020.jpg" alt="IO-Link example topology" style="width: 100%"/>
 
 
+## And now ... subtle product placement
+
+<img src="assets/discrete-ad-placement.jpg" alt="IO-Link example topology" style="width: 100%"/>
+
+
 <!--
 ------------------
 

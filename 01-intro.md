@@ -10,6 +10,11 @@
 <img src="assets/intro-ams17.png" alt="GOTO Rate Intro" style="width: 100%"/>
 </p>
 
+## Warning: we'll go fast!
+
+<p style="text-align:center;">
+<img src="assets/full-speed-ahead.gif" alt="Full speed ahead" style="width: 70%"/>
+</p>
 
 ## Visionaries
 
