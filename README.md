@@ -14,7 +14,7 @@ The generated output can be an HTML/JavaScript slideshow, or a PDF file (using t
 
 * An **ONLINE version** of this presentation can be found on [this link](./presentation.html).
 
-* Besides, an **OFFLINE self-contained version** (which includes all the content in a single file) is available in the [downloads folder](./downloads/).
+* Besides, an **OFFLINE self-contained version** (which includes all the content in a single file) is available [here](https://raw.githubusercontent.com/chronoclast/gotoams2017/master/downloads/self-contained-presentation.html) (`right click` → `download` in your browser to fetch the file).
 
 ## Compiling the Presentation Locally (Optional)
 
