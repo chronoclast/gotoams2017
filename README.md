@@ -12,9 +12,9 @@ The generated output can be an HTML/JavaScript slideshow, or a PDF file (using t
 
 ## Presentation
 
-* An **ONLINE version** of this presentation can be found on [this link](./presentation.html).
+To display the already compiled presentation, **clone or download this repository, and open the file `presentation.html`** with your browser of choice.
 
-* Besides, an **OFFLINE self-contained version** (which includes all the content in a single file) is available [here](https://raw.githubusercontent.com/chronoclast/gotoams2017/master/downloads/self-contained-presentation.html) (`right click` → `download` in your browser to fetch the file).
+Alternatively, a zipped **offline self-contained version** as a single file is available [here](https://drive.google.com/open?id=0B8MA2me0e_7lNE1jOEYtOWVNcTg). Simply click on "download" to fetch the file.
 
 ## Compiling the Presentation Locally (Optional)
 
