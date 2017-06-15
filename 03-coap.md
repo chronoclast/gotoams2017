@@ -148,7 +148,7 @@ _"A specialized web transfer protocol for use with constrained nodes and constra
 
 <br/>
 
-* Protocol extension for CoAP, draft
+* Extension added later to the CoAP spec
 * It transfers larger resource representations than can be usually accommodated in constrained networks
 * Response is split in blocks
 * Both sides have a say in the block size that actually will used
