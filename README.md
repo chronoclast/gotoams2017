@@ -14,7 +14,7 @@ The generated output can be an HTML/JavaScript slideshow, or a PDF file (using t
 
 To display the already compiled presentation, **clone or download this repository, and open the file `presentation.html`** with your browser of choice.
 
-Alternatively, a zipped **offline self-contained version** as a single file is available [here](https://drive.google.com/open?id=0B8MA2me0e_7lNE1jOEYtOWVNcTg). Simply click on "download" to fetch the file.
+Alternatively, a zipped **offline self-contained version** as a single file is available [here](https://github.com/chronoclast/gotoams2017/raw/master/downloads/GOTOAMS-2017-IoT-Protocols.zip). In case that link does not work, here's a [mirror](https://drive.google.com/open?id=0B8MA2me0e_7lNE1jOEYtOWVNcTg) in Google Drive.
 
 ## Compiling the Presentation Locally (Optional)
 
